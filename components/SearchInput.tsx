@@ -75,7 +75,7 @@ export default function SearchInput() {
                           placeholder="Cari..."
                           {...field}
                           className="rounded-full md:min-w-[300px] bg-white border-gray-500 
-                          py-4 max-sm:py-3 transition-all duration-300 max-sm:w-[150px]"
+                          py-4 max-sm:py-3 transition-all duration-300"
                         />
                       </FormControl>
                       <FormMessage />
