@@ -45,7 +45,7 @@ export default function CartClient({ currentUser }: CartClientProps) {
 
   if (cart.length < 1) {
     return (
-      <div className="flex items-center flex-col justify-center space-y-4 h-screen scale-110 w-fit mx-auto">
+      <div className="flex items-center flex-col min-h-[70vh] justify-center space-y-4 scale-110 w-fit mx-auto">
         <div className="flex items-start">
           <PiWarningCircleFill className="text-3xl" />
           <Heading

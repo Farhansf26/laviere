@@ -55,7 +55,7 @@ export default function Navbar({ currentUser }: NavbarProps) {
         <Logo />
 
         {!pathname?.includes("/admin") && (
-          <div className="text-black mr-2">
+          <div className="text-black ml-2">
             <SearchInput />
           </div>
         )}
