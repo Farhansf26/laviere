@@ -92,7 +92,7 @@ export default function Navbar({ currentUser }: NavbarProps) {
               className="max-lg:text-xs"
               onClick={signInModal.onOpen}
             >
-              Login <TbLogin2 />
+              <p className="max-md:hidden">Login</p> <TbLogin2 />
             </Button>
           )}
         </div>
