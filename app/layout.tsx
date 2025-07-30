@@ -33,7 +33,7 @@ export default async function RootLayout({
       <body
         className={`${catamaran.className} antialiased bg-white max-w-[1590px] overflow-x-hidden mx-auto`}
       >
-        <Toaster position="bottom-right"/>
+        <Toaster/>
         <Navbar currentUser={currentUser} />
         <SignInModal />
         <SignUpModal />

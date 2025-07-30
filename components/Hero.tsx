@@ -51,7 +51,7 @@ export default function Hero({ productsCount, categoriesCount }: HeroProps) {
   return (
     <section
       className={cn(
-        "bg-linear-180 from-white to-darker-cream",
+        "bg-linear-180 from-white to-darker-cream overflow-x-hidden",
         !isMounted ? "pb-21 max-sm:pb-60 max-md:pb-30" : "pb-5"
       )}
     >

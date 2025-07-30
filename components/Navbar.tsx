@@ -60,32 +60,30 @@ export default function Navbar({ currentUser }: NavbarProps) {
           </div>
         )}
 
-        <div className="flex items-center md:gap-7 gap-5 text-black">
-          {currentUser ? (
-            <div className="flex items-center gap-2 lg:gap-6">
-              {currentUser?.role !== "ADMIN" && (
-                <div
-                  onClick={() => router.push("/cart")}
-                  className="cursor-pointer hover:opacity-80 relative"
-                >
-                  <IoCart className="text-2xl" />
-                  <div
-                    className="absolute -top-[5px] -right-[6px] bg-light-brown h-4 w-4 
+        <div className="flex items-center lg:gap-7 gap-2 text-black">
+          {currentUser?.role !== "ADMIN" && (
+            <div
+              onClick={() => router.push("/cart")}
+              className="cursor-pointer hover:opacity-80 relative"
+            >
+              <IoCart className="text-2xl" />
+              <div
+                className="absolute -top-[5px] -right-[6px] bg-light-brown h-4 w-4 
             rounded-full flex items-center font-semibold justify-center text-xs text-black"
-                  >
-                    {cart.length}
-                  </div>
-                </div>
-              )}
-
-              <div className="lg:hidden">
-                {pathname?.includes("/admin") && (
-                  <div className="text-black mr-2">
-                    <AdminNavbar />
-                  </div>
-                )}
+              >
+                {cart.length}
               </div>
-
+            </div>
+          )}
+          <div className="lg:hidden">
+            {pathname?.includes("/admin") && (
+              <div className="text-black">
+                <AdminNavbar />
+              </div>
+            )}
+          </div>
+          {currentUser ? (
+            <div className="flex items-center">
               <UserMenu currentUser={currentUser} />
             </div>
           ) : (
