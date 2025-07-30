@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { getCurrentUser } from "@/actions/getCurrentUser"
 import ProfileClient from "./ProfileClient"
 import { prisma } from "@/lib/prisma"

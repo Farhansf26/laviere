@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import type { Metadata } from "next";
 import { Catamaran } from "next/font/google";
 import "./globals.css";
@@ -6,7 +8,6 @@ import { getCurrentUser } from "@/actions/getCurrentUser";
 import SignInModal from "@/components/modals/SignInModal";
 import { Toaster } from "react-hot-toast";
 import Footer from "@/components/Footer";
-import ClientComponent from "@/provider/ClientComponent";
 import AddressModal from "@/components/modals/AddressModal";
 import SignUpModal from "@/components/modals/SignUpModal";
 
@@ -32,19 +33,13 @@ export default async function RootLayout({
       <body
         className={`${catamaran.className} antialiased bg-white max-w-[1600px] overflow-x-hidden mx-auto`}
       >
-        <ClientComponent>
-          <Toaster />
-          <Navbar currentUser={currentUser} />
-          <SignInModal />
-          <SignUpModal/>
-          <AddressModal/>
-        </ClientComponent>
-        <div className="min-h-[70vh]">
-          {children}
-        </div>
-        <ClientComponent>
-          <Footer />
-        </ClientComponent>
+        <Toaster />
+        <Navbar currentUser={currentUser} />
+        <SignInModal />
+        <SignUpModal />
+        <AddressModal />
+        <div className="min-h-[70vh]">{children}</div>
+        <Footer />
       </body>
     </html>
   );

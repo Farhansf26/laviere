@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { getCurrentUser } from "@/actions/getCurrentUser";
 import CheckoutClient from "./CheckoutClient";
 import { redirect } from "next/navigation";

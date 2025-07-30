@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { getCurrentUser } from "@/actions/getCurrentUser"
 import Sidebar from "@/components/admin/Sidebar"
 import ClientComponent from "@/provider/ClientComponent"

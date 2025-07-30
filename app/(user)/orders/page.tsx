@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { getCurrentUser } from "@/actions/getCurrentUser"
 import { prisma } from "@/lib/prisma"
 import { redirect } from "next/navigation"
