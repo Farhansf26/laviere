@@ -55,12 +55,12 @@ export default function Navbar({ currentUser }: NavbarProps) {
         <Logo />
 
         {!pathname?.includes("/admin") && (
-          <div className="text-black">
+          <div className="text-black mr-2">
             <SearchInput />
           </div>
         )}
 
-        <div className="flex items-center lg:gap-7 gap-2 text-black">
+        <div className="flex items-center lg:gap-7 gap-2.5 text-black">
           {currentUser?.role !== "ADMIN" && (
             <div
               onClick={() => router.push("/cart")}
@@ -87,13 +87,14 @@ export default function Navbar({ currentUser }: NavbarProps) {
               <UserMenu currentUser={currentUser} />
             </div>
           ) : (
-            <Button
-              size="sm"
-              className="max-lg:text-xs"
+            <div
+              className="max-md:text-xs text-sm flex items-center gap-2 bg-black text-white 
+              md:rounded-lg py-1.5 md:px-3 px-2 rounded-md
+              hover:opacity-90 transition cursor-pointer"
               onClick={signInModal.onOpen}
             >
-              <p className="max-md:hidden">Login</p> <TbLogin2 />
-            </Button>
+              Login <TbLogin2 className="max-md:hidden"/> 
+            </div>
           )}
         </div>
       </nav>
