@@ -44,8 +44,6 @@ export default function SignInModal() {
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-
     const { email, password } = values;
 
     try {
@@ -55,7 +53,6 @@ export default function SignInModal() {
         password,
         redirect: false,
       });
-      console.log(response);
       if (response?.ok) {
         toast.success("Berhasil Login");
         router.refresh();

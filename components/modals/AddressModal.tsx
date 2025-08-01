@@ -50,7 +50,6 @@ export default function AddressModal() {
 
   // 2. Define a submit handler.
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
     try {
       setIsLoading(true);
       await axios.post("/api/address", values);

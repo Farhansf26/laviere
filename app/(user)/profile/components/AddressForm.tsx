@@ -59,7 +59,6 @@ export default function AddressForm({ address }: AddressFormProps) {
 
   // 2. Define a submit handler.
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
     try {
       setIsLoading(true);
       setDisableEdit(true)

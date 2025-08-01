@@ -43,7 +43,6 @@ export default function AgeForm({ data }: AgeFormProps) {
   })
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values)
     try {
       setIsLoading(true)
     

@@ -29,7 +29,6 @@ export default function SearchPage() {
         const response = await axios.get(
           `${process.env.NEXT_PUBLIC_API_URL}/recommend?keyword=${key}`
         );
-        console.log(response);
         setMatchedProducts(response?.data?.results.matched_products);
         setRecommendedProducts(response?.data?.results.recommended_products);
       } catch (error: unknown) {

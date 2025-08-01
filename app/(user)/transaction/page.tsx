@@ -13,7 +13,6 @@ export default async function TransactionPage({
   searchParams,
 }: TransactionPageProps) {
   const params = await searchParams;
-  console.log(params);
 
   return (
     <div>

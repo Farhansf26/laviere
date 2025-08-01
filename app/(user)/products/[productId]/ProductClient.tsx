@@ -28,11 +28,9 @@ export default function ProductClient({
     const fetchData = async () => {
       try {
         const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/recommend?keyword=${keyword}`);
-        console.log(response);
         setMatchedProducts(response?.data?.results.matched_products);
         setRecommendedProducts(response?.data?.results.recommended_products);
       } catch (error: unknown) {
-        console.log(error)
         toast.error("Failed to get related products, please try again!");
       }
     };
@@ -41,7 +39,6 @@ export default function ProductClient({
 
   const combinedProducts = matchedProducts.concat(recommendedProducts)
   const relatedProducts = combinedProducts.filter((item) => item.id !== product.id).slice(0, 15)
-  console.log(relatedProducts)
 
   return (
     <div className="space-y-10 py-4 px-8 bg-gradient-to-b from-white to-custom-white">

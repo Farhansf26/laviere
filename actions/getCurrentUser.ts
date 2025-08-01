@@ -24,7 +24,6 @@ export const getCurrentUser = async() => {
 
     return currentUser
   } catch (error: unknown) {
-    console.log('GET_CURRENT_USER', error)
     return null
   }
 }

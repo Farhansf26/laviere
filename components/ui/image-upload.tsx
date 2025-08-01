@@ -101,7 +101,6 @@ export default function ImageUpload({
             disabled={disabled}
             endpoint="imageUploader"
             onClientUploadComplete={async (res) => {
-              console.log("Files: ", res);
 
               if (res.length > 4) {
                 toast.error("Cannot upload more than 4 images!");

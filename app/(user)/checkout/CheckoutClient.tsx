@@ -8,7 +8,7 @@ import { indoCurrency } from "@/lib/formatNumber";
 import { Button } from "@/components/ui/button";
 import { FaBoxOpen } from "react-icons/fa";
 import { GiTakeMyMoney } from "react-icons/gi";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import ShippingInfo from "./components/ShippingInfo";
 import axios from "axios";
 import { useAddressModal } from "@/hooks/useAddressModal";
@@ -26,6 +26,7 @@ export default function CheckoutClient({
   const addressModal = useAddressModal();
   const totalAmount = totalPrice();
   const hasOpened = useRef(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     if (!address && !hasOpened.current) {
@@ -53,7 +54,7 @@ export default function CheckoutClient({
 
   const handlePayment = async () => {
     if(!address) return addressModal.onOpen()
-
+    setIsLoading(true)
     try {
       const response = await axios.post("/api/tokenizer", {
         cartItems: cart,
@@ -61,12 +62,12 @@ export default function CheckoutClient({
         totalAmount,
       });
 
-      console.log(response);
-
       // @ts-expect-error will mount after the user clicked the button
       window.snap.pay(response.data.token);
     } catch (error: unknown) {
-      console.log(error);
+      
+    } finally {
+      setIsLoading(false)
     }
   };
 
@@ -114,6 +115,7 @@ export default function CheckoutClient({
                   variant="lbrown"
                   className="md:py-5 w-[50%] border border-black"
                   onClick={handlePayment}
+                  disabled={isLoading}
                 >
                   Bayar
                 </Button>

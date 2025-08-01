@@ -47,7 +47,6 @@ export default function SignUpModal() {
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
     try {
       setIsLoading(true)
       await axios.post('api/sign-up', values)
@@ -57,7 +56,6 @@ export default function SignUpModal() {
       signUpModal.onClose()
       signInModal.onOpen()
     } catch (error: any) {
-      console.log(error)
       toast.error(error.response.data)
     } finally {
       setIsLoading(false)

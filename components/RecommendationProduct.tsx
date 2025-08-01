@@ -17,7 +17,6 @@ export default function RecommendationProduct() {
     const fetchData = async () => {
       try {
         const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/recommend/purchased-items`)
-        console.log(response)
         setRecommendedProducts(response.data.results.recommended_products)
       } catch (error: unknown) {
         toast.error("Gagal memuat produk rekomendasi.");

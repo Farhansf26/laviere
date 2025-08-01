@@ -97,7 +97,6 @@ export default function ProductForm({
   const priceValue = form.watch("price");
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
     if (priceValue.toString().includes("-"))
       return toast.error("Price must be a full of number!");
     try {
