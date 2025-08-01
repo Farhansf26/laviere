@@ -7,6 +7,7 @@ import Image, { StaticImageData } from "next/image";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import { useCartStore } from "@/hooks/useCartStore";
 
 interface TransactionClientProps {
   transactionStatus: string;
@@ -24,10 +25,12 @@ export default function TransactionClient({
 }: TransactionClientProps) {
   const [isMounted, setIsMounted] = useState(false);
   const router = useRouter()
+  const { clearCart } = useCartStore()
 
   useEffect(() => {
     setIsMounted(true);
-  }, []);
+    clearCart()
+  }, [clearCart]);
 
   if (isMounted) {
     setTimeout(() => {
