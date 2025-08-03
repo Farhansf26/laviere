@@ -28,24 +28,10 @@ export default async function ProductPage({ params }: ProductPageProps) {
   
   if(product && productId !== product.id) redirect(`/products/${product.id}`)
   if(!product) redirect('/')
-
-  let age;
-  if(product) {
-    age = await prisma.age.findFirst({
-      where: {
-        id: product.ageId
-      }
-    })
-  }
   
-  const category = product.categories.join(' ')
-  const ageNname = age?.name
-
-  const keyword = category + ' ' + ageNname
-
   return (
     <div>
-      <ProductClient product={product} keyword={keyword}/>
+      <ProductClient product={product}/>
     </div>
   )
 }

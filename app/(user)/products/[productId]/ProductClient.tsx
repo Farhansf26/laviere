@@ -14,12 +14,10 @@ interface ProductWithImages extends Product {
 
 interface ProductClientProps {
   product: ProductWithImages;
-  keyword: string;
 }
 
 export default function ProductClient({
   product,
-  keyword,
 }: ProductClientProps) {
   const [matchedProducts, setMatchedProducts] = useState<ProductAPI[]>([]);
   const [recommendedProducts, setRecommendedProducts] = useState<ProductAPI[]>([]);
@@ -27,7 +25,7 @@ export default function ProductClient({
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/recommend?keyword=${keyword}`);
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/recommend?keyword=${product.name}`);
         setMatchedProducts(response?.data?.results.matched_products);
         setRecommendedProducts(response?.data?.results.recommended_products);
       } catch (error: unknown) {
@@ -35,7 +33,7 @@ export default function ProductClient({
       }
     };
     fetchData();
-  }, [keyword]);
+  }, [product.name]);
 
   const combinedProducts = matchedProducts.concat(recommendedProducts)
   const relatedProducts = combinedProducts.filter((item) => item.id !== product.id).slice(0, 15)
