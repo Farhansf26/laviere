@@ -36,7 +36,7 @@ export default function ProductClient({
   }, [product.name]);
 
   const combinedProducts = matchedProducts.concat(recommendedProducts)
-  const relatedProducts = combinedProducts.filter((item) => item.id !== product.id).slice(0, 25)
+  const relatedProducts = combinedProducts.filter((item) => item.id !== product.id)
 
   return (
     <div className="space-y-10 py-4 px-8 bg-gradient-to-b from-white to-custom-white">
