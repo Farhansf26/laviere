@@ -71,14 +71,14 @@ export default function OrdersClient({ orders }: OrdersClientProps) {
               <div className="flex items-center justify-between px-3 py-2 border-b">
                 <div className="flex items-center gap-1">
                   <BiSolidShoppingBagAlt className="-translate-y-0.5 text-xl max-lg:text-base" />
-                  <p className="max-lg:text-xs text-sm font-bold">
+                  <p className="max-lg:text-[10px] text-xs font-bold">
                     ODR-{order.id.slice(0, 8)}
                   </p>
                 </div>
                 <div className="flex items-center gap-1 text-sm max-md:text-xs font-light">
                   <CiCalendarDate />
                   <p>
-                    Estimasi:{" "}
+                    Est:{" "}
                     {format(addDays(order.createdAt, 3), "dd MMMM yyyy")}
                   </p>
                 </div>
