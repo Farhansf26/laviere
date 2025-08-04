@@ -156,7 +156,7 @@ export default function OrdersClient({ orders }: OrdersClientProps) {
                   </div>
                 ))}
               </div>
-              <div className="border-t flex justify-between px-3 py-2">
+              <div className="border-t flex justify-between max-md:gap-2 px-3 py-2">
                 <div className="flex items-center gap-1 text-sm max-md:text-xs xl:max-w-[900px] md:max-w-[500px] max-md:max-w-[265px]">
                   <MdOutlineLocationOn className="-translate-y-[1px]"/>
                   <p className="line-clamp-1 leading-snug">{order.address.name}, {order.address.city}</p>
