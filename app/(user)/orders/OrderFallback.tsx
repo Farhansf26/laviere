@@ -5,7 +5,7 @@ import Heading from "@/components/ui/heading"
 import { useRouter } from "next/navigation"
 import { IoChevronBackCircle } from "react-icons/io5"
 
-export default function SearchFallback() {
+export default function OrdersFallback() {
   const router = useRouter()
   
   return (

@@ -13,6 +13,7 @@ import { addDays, format } from "date-fns";
 import { CiCalendarDate } from "react-icons/ci";
 import { GiShoppingBag } from "react-icons/gi";
 import { MdOutlineLocationOn } from "react-icons/md";
+import OrdersFallback from "./OrderFallback";
 
 type OrdersWithItemsAndProducts = Prisma.OrderGetPayload<{
   include: {
@@ -34,6 +35,10 @@ interface OrdersClientProps {
 }
 
 export default function OrdersClient({ orders }: OrdersClientProps) {
+  if(orders.length < 1) {
+    return <OrdersFallback/>
+  }
+
   return (
     <div className="space-y-2">
       <div>
