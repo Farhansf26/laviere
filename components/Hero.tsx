@@ -122,7 +122,7 @@ export default function Hero({ productsCount, categoriesCount }: HeroProps) {
             alt=""
             className="object-contain w-full h-full hover:scale-103 transition duration-300 z-10 hover:opacity-90"
           />
-          <div className="absolute bottom-15 translate-x-2">
+          <div className="absolute bottom-15 lg:translate-x-2">
             <div
               className="bg-gradient-to-t to-custom-white via-[#EBE5C2] from-darker-cream
               lg:h-110 md:h-90 sm:h-70 h-60 lg:w-110 md:w-90 sm:w-70 w-60 max-sm:translate-y-10 rounded-full"
