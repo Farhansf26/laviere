@@ -42,8 +42,8 @@ export async function PATCH(
         subdistrict,
         city,
         province,
-        phoneNumber,
-        zipCode
+        phoneNumber: String(phoneNumber),
+        zipCode: String(zipCode)
       },
     });
 

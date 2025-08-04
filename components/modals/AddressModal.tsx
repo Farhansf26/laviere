@@ -133,7 +133,7 @@ export default function AddressModal() {
                 <FormItem>
                   <FormLabel>No. Telp</FormLabel>
                   <FormControl>
-                    <Input placeholder="" {...field} />
+                    <Input placeholder="" type="number" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -146,7 +146,7 @@ export default function AddressModal() {
                 <FormItem>
                   <FormLabel>Kode Pos</FormLabel>
                   <FormControl>
-                    <Input placeholder="" {...field} />
+                    <Input placeholder="" type="number" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

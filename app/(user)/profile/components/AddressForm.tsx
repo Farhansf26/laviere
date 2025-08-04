@@ -24,12 +24,12 @@ import { FaSave } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
 
 const formSchema = z.object({
-  name: z.string(),
-  subdistrict: z.string(),
-  city: z.string(),
-  province: z.string(),
-  phoneNumber: z.string(),
-  zipCode: z.string(),
+  name: z.string().min(1),
+  subdistrict: z.string().min(1),
+  city: z.string().min(1),
+  province: z.string().min(1),
+  phoneNumber: z.string().min(1),
+  zipCode: z.string().min(1),
 });
 
 interface AddressFormProps {
@@ -140,7 +140,7 @@ export default function AddressForm({ address }: AddressFormProps) {
               <FormItem>
                 <FormLabel>No. Telp</FormLabel>
                 <FormControl>
-                  <Input placeholder="" {...field} disabled={disableEdit} />
+                  <Input placeholder="" type="number" {...field} disabled={disableEdit} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -153,7 +153,7 @@ export default function AddressForm({ address }: AddressFormProps) {
               <FormItem>
                 <FormLabel>Kode Pos</FormLabel>
                 <FormControl>
-                  <Input placeholder="" {...field} disabled={disableEdit} />
+                  <Input placeholder="" type="number" {...field} disabled={disableEdit} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
