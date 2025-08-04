@@ -36,7 +36,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
   return (
     <div>
       <div className="grid lg:grid-cols-2 grid-cols-1 gap-2">
-        <div className="relative md:h-130 md:w-130 h-90 w-90 mx-auto">
+        <div className="relative md:h-130 md:w-130 h-75 w-75 mx-auto">
           <Image
             src={product.images[0].url}
             alt={`${product.name} image`}
