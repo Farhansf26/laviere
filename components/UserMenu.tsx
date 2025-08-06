@@ -9,6 +9,7 @@ import { useRouter } from "next/navigation"
 import { signOut } from 'next-auth/react'
 import { useEffect, useState } from "react"
 import { PiNotepad } from "react-icons/pi"
+import { IoHeartOutline } from "react-icons/io5"
 
 interface UserMenuProps {
   currentUser?: User | null
@@ -43,6 +44,9 @@ export default function UserMenu({ currentUser }: UserMenuProps) {
         <DropdownMenuSeparator />
         <DropdownMenuItem onSelect={() => router.push('/profile')}>
           Profile <User2 className="ml-auto"/>
+        </DropdownMenuItem>
+        <DropdownMenuItem onSelect={() => router.push('/favorites')}>
+          My Favorites <IoHeartOutline className="ml-auto"/>
         </DropdownMenuItem>
         <DropdownMenuItem onSelect={() => router.push('/orders')}>
           My Orders <PiNotepad className="ml-auto"/>

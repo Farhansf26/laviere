@@ -7,8 +7,13 @@ import toast from "react-hot-toast";
 import ProductList from "./product/ProductList";
 import { FaRegThumbsUp } from "react-icons/fa";
 import { Element } from "react-scroll";
+import { User } from "@/lib/generated/prisma";
 
-export default function RecommendationProduct() {
+interface RecommendationProductProps {
+  currentUser?: User | null
+}
+
+export default function RecommendationProduct({ currentUser }: RecommendationProductProps) {
   const [recommendedProducts, setRecommendedProducts] = useState<ProductAPI[]>(
     []
   );
@@ -18,6 +23,7 @@ export default function RecommendationProduct() {
       try {
         const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/recommend/purchased-items`)
         setRecommendedProducts(response.data.results.recommended_products)
+        console.log(response.data.results.recommended_products)
       } catch (error: unknown) {
         toast.error("Gagal memuat produk rekomendasi.");
       }
@@ -39,7 +45,7 @@ export default function RecommendationProduct() {
         </p>
       </div>
       <div className="2xl:px-32 px-8 py-4 container mx-auto space-y-10">
-        <ProductList products={recommendedProducts} />
+        <ProductList products={recommendedProducts} currentUser={currentUser}/>
       </div>
     </div>
   );

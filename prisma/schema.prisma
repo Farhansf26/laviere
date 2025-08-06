@@ -24,6 +24,7 @@ model User {
   accounts      Account[]
   products Product[]
   role Role @default(USER)
+  favoriteIds String[] @db.ObjectId
   addresses Address[]
   orders Order[]
 

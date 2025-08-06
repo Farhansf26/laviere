@@ -1,11 +1,12 @@
 "use client";
 
 import { indoCurrency } from "@/lib/formatNumber";
-import { Image as ImageType, Product } from "@/lib/generated/prisma";
+import { Image as ImageType, Product, User } from "@/lib/generated/prisma";
 import Image from "next/image";
 import { Button } from "../ui/button";
 import { CartItem, useCartStore } from "@/hooks/useCartStore";
 import toast from "react-hot-toast";
+import HeartButton from "../HeartButton";
 
 interface ProductWithImages extends Product {
   images: ImageType[];
@@ -13,9 +14,10 @@ interface ProductWithImages extends Product {
 
 interface ProductDetailProps {
   product: ProductWithImages;
+  currentUser?: User | null
 }
 
-export default function ProductDetail({ product }: ProductDetailProps) {
+export default function ProductDetail({ product, currentUser }: ProductDetailProps) {
   const { addToCart } = useCartStore();
 
   const formattedProductToCart: CartItem = {
@@ -24,8 +26,8 @@ export default function ProductDetail({ product }: ProductDetailProps) {
     price: product.price,
     quantity: 1,
     image: product.images[0].url,
-    category: product.categories.join(', '),
-    stock: product.stock
+    category: product.categories.join(", "),
+    stock: product.stock,
   };
 
   const handleAddToCart = () => {
@@ -74,12 +76,17 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                   })}
                 </div>
               </div>
-              <Button
-                onClick={handleAddToCart}
-                className="min-w-[150px] lg:w-[250px] lg:py-6 py-5 border border-gray-600 font-bold"
-              >
-                +Keranjang
-              </Button>
+              <div className='flex items-center justify-between gap-5'>
+                <Button
+                  onClick={handleAddToCart}
+                  className="min-w-[150px] lg:w-[250px] lg:py-6 py-5 border border-gray-600 font-bold"
+                >
+                  +Keranjang
+                </Button>
+                <div className="max-md:scale-80">
+                  <HeartButton currentUser={currentUser} productId={product.id} big/>
+                </div>
+              </div>
             </div>
             <div className="gap-1 flex items-center -mt-4 flex-wrap text-sm lg:hidden">
               <h5 className="font-light">Kategori:</h5>

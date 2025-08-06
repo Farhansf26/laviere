@@ -2,7 +2,7 @@
 
 import ProductDetail from "@/components/product/ProductDetail";
 import ProductList from "@/components/product/ProductList";
-import { Image, Product } from "@/lib/generated/prisma";
+import { Image, Product, User } from "@/lib/generated/prisma";
 import { ProductAPI } from "@/lib/types";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -14,10 +14,12 @@ interface ProductWithImages extends Product {
 
 interface ProductClientProps {
   product: ProductWithImages;
+  currentUser?: User | null
 }
 
 export default function ProductClient({
   product,
+  currentUser
 }: ProductClientProps) {
   const [matchedProducts, setMatchedProducts] = useState<ProductAPI[]>([]);
   const [recommendedProducts, setRecommendedProducts] = useState<ProductAPI[]>([]);
@@ -40,11 +42,11 @@ export default function ProductClient({
 
   return (
     <div className="space-y-10 py-4 px-8 bg-gradient-to-b from-white to-custom-white">
-      <ProductDetail product={product} />
+      <ProductDetail product={product} currentUser={currentUser}/>
       <div className="w-full border lg:hidden"/>
       <div className="2xl:px-32 container mx-auto space-y-4">
         <h3 className="text-center text-2xl font-semibold">Produk Terkait</h3>
-        <ProductList products={relatedProducts} />
+        <ProductList products={relatedProducts} currentUser={currentUser}/>
       </div>
     </div>
   );

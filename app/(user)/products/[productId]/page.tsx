@@ -2,6 +2,7 @@ import { prisma } from "@/lib/prisma"
 import { ObjectId } from "mongodb"
 import { redirect } from "next/navigation"
 import ProductClient from "./ProductClient"
+import { getCurrentUser } from "@/actions/getCurrentUser"
 
 interface ProductPageProps {
   params: {
@@ -11,6 +12,7 @@ interface ProductPageProps {
 
 export default async function ProductPage({ params }: ProductPageProps) {
   const { productId } = await params
+  const currentUser = await getCurrentUser()
 
   const productIdPrefix = productId.slice(0, 24)
 
@@ -31,7 +33,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
   
   return (
     <div>
-      <ProductClient product={product}/>
+      <ProductClient product={product} currentUser={currentUser}/>
     </div>
   )
 }

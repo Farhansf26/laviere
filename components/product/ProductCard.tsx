@@ -7,12 +7,15 @@ import { ProductAPI } from "@/lib/types";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
+import HeartButton from "../HeartButton";
+import { User } from "@/lib/generated/prisma";
 
 interface ProductCardProps {
   product: ProductAPI;
+  currentUser?: User | null
 }
 
-export default function ProductCard({ product }: ProductCardProps) {
+export default function ProductCard({ product, currentUser }: ProductCardProps) {
   const router = useRouter();
   const { addToCart } = useCartStore();
 
@@ -45,6 +48,9 @@ export default function ProductCard({ product }: ProductCardProps) {
           fill
           className="object-cover h-full w-full"
         />
+        <div className="absolute top-3 right-3">
+          <HeartButton currentUser={currentUser} productId={product.id}/>
+        </div>
       </div>
       <div className="p-3 flex flex-col gap-4 justify-between border-t">
         <h5 className="leading-snug line-clamp-2 text-sm min-h-[2.5rem]">

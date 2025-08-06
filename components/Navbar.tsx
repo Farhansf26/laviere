@@ -8,7 +8,6 @@ import { IoCart } from "react-icons/io5";
 import { User } from "@/lib/generated/prisma";
 import { useCartStore } from "@/hooks/useCartStore";
 import Logo from "./Logo";
-import { Button } from "./ui/button";
 import { TbLogin2 } from "react-icons/tb";
 import { useSignInModal } from "@/hooks/useSignInModal";
 import AdminNavbar from "./admin/AdminNavbar";
