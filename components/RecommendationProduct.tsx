@@ -5,9 +5,10 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import ProductList from "./product/ProductList";
-import { FaRegThumbsUp } from "react-icons/fa";
+import { FaLightbulb } from "react-icons/fa";
 import { Element } from "react-scroll";
 import { User } from "@/lib/generated/prisma";
+import Heading from "./ui/heading";
 
 interface RecommendationProductProps {
   currentUser?: User | null
@@ -32,12 +33,23 @@ export default function RecommendationProduct({ currentUser }: RecommendationPro
     fetchData();
   }, []);
 
+  if(recommendedProducts.length < 1) {
+    return (
+      <div className="text-red-500 scale-80">
+        <Heading
+          title='Gagal Memuat Rekomendasi Produk'
+          center
+        />
+      </div>
+    )
+  }
+
   return (
     <div className="pt-4 bg-white">
       <div className="flex flex-col items-center justify-center">
         <Element name="recommendation">
           <h2 className="lg:text-2xl text-xl font-bold tracking-tight flex items-start gap-1">
-            Rekomendasi <FaRegThumbsUp />
+            Rekomendasi <FaLightbulb />
           </h2>
         </Element>
         <p className="font-light max-md:text-sm">

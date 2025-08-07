@@ -2,7 +2,7 @@
 
 import { useCartStore } from "@/hooks/useCartStore";
 import { Button } from "@/components/ui/button";
-import { FaTrash } from "react-icons/fa";
+import { FaHome, FaTrash } from "react-icons/fa";
 import ProductInCart from "./components/ProductInCart";
 import Heading from "@/components/ui/heading";
 import { useState } from "react";
@@ -12,7 +12,6 @@ import {
 } from "react-icons/md";
 import { PiWarningCircleFill } from "react-icons/pi";
 import { useRouter } from "next/navigation";
-import { IoChevronBackCircle } from "react-icons/io5";
 import Summary from "./components/Summary";
 import { User } from "@/lib/generated/prisma";
 
@@ -57,8 +56,8 @@ export default function CartClient({ currentUser }: CartClientProps) {
         <Button
           onClick={() => router.push('/')}
         >
-          <IoChevronBackCircle/>
           Kembali ke Beranda
+          <FaHome/>
         </Button>
       </div>
     );
