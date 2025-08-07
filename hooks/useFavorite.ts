@@ -24,8 +24,12 @@ const useFavorite = ({ productId, currentUser } : IUseFavorite) => {
   const toggleFavorite = useCallback(async (e: React.MouseEvent<HTMLDivElement>) => {
     e.stopPropagation()
 
-    if(!currentUser) return signInModal.onOpen()
-      
+    if (!currentUser) {
+      signInModal.onOpen()
+      toast.error('Silahkan login terlebih dahulu!')
+      return
+    }
+    
       try {
       setIsLoading(true)
       let request;
