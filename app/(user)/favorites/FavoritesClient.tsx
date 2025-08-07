@@ -9,7 +9,8 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import { FaHeart, FaHome } from "react-icons/fa";
+import { FaHome } from "react-icons/fa";
+import { LiaThumbsUp } from "react-icons/lia";
 
 interface FavoritesClientProps {
   products: ProductAPI[];
@@ -73,7 +74,7 @@ export default function FavoritesClient({
       </div>
       <div className="flex items-center justify-center gap-2 text-xl font-medium tracking-tight">
         <h1>Produk produk yang mungkin anda suka juga</h1>
-        <FaHeart className="scale-125" />
+        <LiaThumbsUp className="scale-125" />
       </div>
       <div className="2xl:px-10 px-8 py-5 container mx-auto space-y-10">
         <ProductList products={recommendedProducts} currentUser={currentUser} />

@@ -24,7 +24,6 @@ export default function RecommendationProduct({ currentUser }: RecommendationPro
       try {
         const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/recommend/purchased-items`)
         setRecommendedProducts(response.data.results.recommended_products)
-        console.log(response.data.results.recommended_products)
       } catch (error: unknown) {
         toast.error("Gagal memuat produk rekomendasi.");
       }
