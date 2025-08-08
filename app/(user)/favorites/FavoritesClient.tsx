@@ -68,17 +68,17 @@ export default function FavoritesClient({
   }
 
   return (
-    <div>
-      <div className="2xl:px-10 px-8 py-5 container mx-auto space-y-10">
-        <ProductList products={products} currentUser={currentUser} />
-      </div>
+    <div className="2xl:px-10 px-8 py-5 container mx-auto space-y-5">
+      <Heading
+        title="Favorit Anda"
+        description="Produk produk yang anda tambahkan ke dalam favorit"
+      />
+      <ProductList products={products} currentUser={currentUser} />
       <div className="flex items-center justify-center gap-2 text-xl font-medium tracking-tight">
         <h1>Produk produk yang mungkin anda suka juga</h1>
         <LiaThumbsUp className="scale-125" />
       </div>
-      <div className="2xl:px-10 px-8 py-5 container mx-auto space-y-10">
-        <ProductList products={recommendedProducts} currentUser={currentUser} />
-      </div>
+      <ProductList products={recommendedProducts} currentUser={currentUser} />
     </div>
   );
 }
