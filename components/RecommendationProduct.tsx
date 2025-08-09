@@ -39,7 +39,7 @@ export default function RecommendationProduct({ currentUser }: RecommendationPro
           title='Gagal Memuat Rekomendasi Produk'
           center
         />
-        <p className='md:text-sm text-xs font-light text-muted-foreground'>Tunggu sebentar atau coba refresh halaman</p>
+        <p className='md:text-lg text-sm font-light text-muted-foreground text-center'>Tunggu sebentar atau coba refresh halaman</p>
       </div>
     )
   }
