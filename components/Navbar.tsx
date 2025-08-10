@@ -40,9 +40,9 @@ export default function Navbar({ currentUser }: NavbarProps) {
   const navBg = isHome && !scrolled ? "bg-transparent " : "bg-white shadow";
 
   return (
-    <div className="pb-15 max-w-[1590px]">
+    <div className="pb-15">
       <nav
-        className={`fixed top-0 w-full flex items-center text-black justify-between z-50 
+        className={`fixed top-0 w-full max-w-[1590px] flex items-center text-black justify-between z-50 
           transition-all duration-700 
         ${navBg} px-3 lg:px-8 h-[63px] gap-4
         ${
